@@ -34,7 +34,7 @@
         </view>
       </view>
       <view class="weui-agree__text">
-        如果你还没有注册 Larabbs 用户可以<navigator url="/pages/auth/register" class="weui-agree__link">注册新用户</navigator>
+        如果你还没有注册 Larabbs 用户可以<navigator url="/pages/auth/register" class="weui-agree__link">注册</navigator>
       </view>
 
       <view class="weui-btn-area">
@@ -115,7 +115,7 @@
       try {
         // 打开页面自动调用一次登录
         let authResponse = await api.login()
-
+        console.log(authResponse.statusCode)
         // 登录成功返回上一页
         if (authResponse.statusCode === 201) {
           wepy.navigateBack()

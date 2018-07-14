@@ -27,7 +27,6 @@ const request = async (options, showLoading = true) => {
   // 隐藏加载中
     wepy.hideLoading()
   }
-
 // 服务器异常后给予提示
   if (response.statusCode === 500) {
     wepy.showModal({
@@ -42,7 +41,7 @@ const request = async (options, showLoading = true) => {
 
 // 登录
 const login = async (params = {}) => {
-  // code只能使用一次，所以每次单独调用
+  // code 只能使用一次，所以每次单独调用
   let loginData = await wepy.login()
 
   // 参数中增加code
@@ -55,7 +54,7 @@ const login = async (params = {}) => {
     method: 'POST'
   })
 
-  // 登录成功，记录token信息
+  // 登录成功，记录 token 信息
   if (authResponse.statusCode === 201) {
     wepy.setStorageSync('access_token', authResponse.data.access_token)
     wepy.setStorageSync('access_token_expired_at', new Date().getTime() + authResponse.data.expires_in * 1000)
