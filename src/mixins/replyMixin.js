@@ -88,8 +88,7 @@ export default class ReplyMixin extends wepy.mixin {
       return false
     }
 
-    return (reply.user_id === user.id)
-  }
+    return (reply.user_id === user.id) || this.$parent.can('manage_contents')
 
   methods = {
     // 删除回复
